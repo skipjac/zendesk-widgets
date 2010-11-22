@@ -125,12 +125,12 @@ $j(document).ready(function() {
             minuteTime[1] = '.'+minuteTime[1];
             minuteTime[1] = parseFloat(minuteTime[1])*60;
 
-            //to fixed found here http://www.electrictoolbox.com/javascript-fixed-digits-after-decimal-places/
-            //places nice time in hours and minutes in the sidebar
-            $j('#realTime').append('Hours: '+diffTime.toFixed(0)+' minutues '+ minuteTime[1].round());
+             if(diffTime > 0) {
+                 $j('#realTime').append('Hours: '+diffTime.toFixed(0)+' minutues '+ minuteTime[1].round());
 
-            //places the time in seconds in the text box on the form
-            $j('input#ticket_fields_250972').val(parseInt(time1));
+                 //places the time in seconds in the text box on the form
+                  $j('input#ticket_fields_250972').val(parseInt(time1));
+              }else { $j('#realTime').append("No Agent has responded yet");}
 
 
          }
