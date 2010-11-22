@@ -1,11 +1,11 @@
-<!--this widget figures out the time from creation of the ticket to the 
+/*this widget figures out the time from creation of the ticket to the 
 first comment a agent makes public or private. The only thing you have to 
 edit is the input#ticket_fields_250972 for the Id of the field your system.
 Right now is will save the difference in seconds but I have placed other 
 variables that give hour dotted time and hours and minutes. The 
 sidebar will display the hours and mintues. Just copy the code and place
 it in a custom Zendesk widget.  
--->
+*/
 
 <div id="realTime">
 </div>
