@@ -1,6 +1,6 @@
 <div id='hipchat_widget'>
 </div>
-<script type="javascript">
+<script type="text/javascript">
 
 	 
 $j(document).ready(function() {
