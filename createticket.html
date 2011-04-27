@@ -1,0 +1,31 @@
+
+<script type="text/javascript">
+Event.observe(document, 'widgets:load', function() {
+  createNewRequst = function(requestText) {
+
+      var sURL = document.location.href;
+      var number_1 = sURL.lastIndexOf('/') + 1; 
+      var ticketNumber = sURL.substring(number_1); 
+      var doc = '<ticket><subject>' + ticketNumber + '</subject><description>' + requestText + '</description></ticket>';
+      var url = '/requests.xml?_method=post';
+
+       new Ajax.Request(url, {
+       contentType: 'application/xml',
+       method: 'post',
+       encoding: '',
+       postBody: doc,
+       onSuccess: function() {alert('your requests has been submited');},
+       onFailure: function() {alert('Failed to update: with data');}
+   });
+
+}
+
+});
+
+</script>
+<div style="text-align: center; padding:5px;">
+<form name="skip_request_form">
+   <textarea name="things" cols="10" rows="5"></textarea>
+</form>
+<input type="button" id="skip_request" value="skip" onClick="createNewRequst(document.skip_request_form.things.value);" />
+</div>
