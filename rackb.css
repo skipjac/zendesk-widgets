@@ -1,0 +1,118 @@
+
+.empty_category { display: none; }
+
+
+body {
+	background: url(http://www.test.com/images/backgrounds/bg_body.png);
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	padding: 0;
+	}
+#page {
+	background-color: #FFFFFF;
+	min-width: 100%;
+	max-width: 100%;
+	padding: 0;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	}
+#top {
+	background: url(http://www.test.com/images/backgrounds/bg_inner_wrapper_content.png) repeat-x top left;
+	min-width: 100%;
+	max-width: 100%;
+	padding: 0;
+	}
+#container {
+	margin: 0 auto;
+	text-align: left;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	}
+
+
+#header {
+	height: 106px;
+	background: url(http://www.test.com/images/backgrounds/bg_header01.jpg) no-repeat top left;
+	max-width: 960px;
+	margin: 0 auto;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	}
+#header h1 {
+	float: left;
+	width: 291px;
+	height: 44px;
+	margin: 27px 0 0;
+	display: inline;
+	}
+#header h1 a:link, #header h1 a:visited {
+	display: block;
+	width: 291px;
+	height: 44px;
+	text-indent: -9999px;
+	overflow: hidden;
+	background: url(http://www.test.com/images/logos/logo_main.png);
+	}
+#table_header {
+	display: none;
+	}
+
+/*** MAIN NAV ***/
+
+#page #top-menu-background {
+	width: 960px;
+	height: 95px;
+	margin: 0 auto;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	}
+#page #top-menu {
+	width: 640px;
+	margin: 0 10px;
+	padding: 20px 10px 0;
+	height: 35px;
+	}
+
+
+/*** CONTENT AREA ***/
+#sidebar .widget a, #widget_manager_widget a {
+	color: #333333;
+	}
+.side-box-content a {
+	color: #333333;
+	text-decoration: underline;
+	}
+.side-box-content p a {
+	color: #333333;
+	}
+.side-box-content li a {
+	color: #333333;
+	text-decoration: none;
+	}
+#sidebar .widget h3 a {
+	color: #222;
+	word-wrap:break-word;
+	}
+div#container {
+	padding: 5px 20px 20px 20px;
+	width: 920px;
+	}
+.content h2 {
+	font-size: 18px;
+	font-weight: normal;
+	margin: 11px 0 7px;
+	}
+.side-box-content, .blue_box_top, .blue_box_bottom, .side-box-with-image, .r_blue {
+	background-color: #c3ef8e;
+	}
+.frame {
+	padding: 7px 15px 7px 13px;
+	}
+#rules.full-width, #rules.full-width .shared {
+	width:97% !important;
+	}
+.side-box-content h3 {
+	color:#222;
+	}
