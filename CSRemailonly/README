@@ -1,0 +1,5 @@
+If you are running a email only helpdesk, but still want to use Customer Satifaction Ratings you have to hide the interface. The best way to do that is to hide it in the CSS and then expose it if they are not on the customer satisfaction page. 
+
+This takes 2 widgets the first is a CSS widget hiding top, footer and sidebar. The other is a javascript widget that shows the top, footer and side bar if not on a rating page. Copy the contents of csr-emailonly.css into a Zendesk CSS widget, either one you already have or create a new one. Then create a global javascript widget and copy the code from csr-emailonly.js into and and save. 
+
+This works because Zendesk loads the CSS 1st and the javascript widgets after document.ready. The reason for the two widgets is do people on a slow connection don't see the header, footer, and sidebar flash before disappering.  
