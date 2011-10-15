@@ -54,7 +54,7 @@ $j(document).ready(function() {
   if(!$j('input#ticket_fields_250972').val()) {
 	
 	//setting the DOM Object to attach the queue to
-	var para = $j("select#ticket_group_id");
+	var para = $j("select#ticket_assignee_id");
         var roleID = new Array();
 	var count = 0;
 	var commentAuthor = new Array();
