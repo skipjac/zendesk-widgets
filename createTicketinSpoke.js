@@ -25,7 +25,7 @@
        <li>
           <label for="ticketDesc">Description<label>
            <span> (required) </span> 
-          <textarea class="required" rows="10" name="ticketDesc" id="ticketDesc" style="width: 196px" "> </textarea>
+          <textarea class="required" rows="10" name="ticketDesc" id="ticketDesc" style="width: 196px"> </textarea>
         </li>
      </ul>
     </div>
