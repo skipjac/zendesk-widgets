@@ -58,7 +58,7 @@
         if($j('#keywordSearch').val()) {
             search_parameters += $j('#keywordSearch').val();
         }
-        location.replace('/search?query=' + search_parameters + 'type%3Aticket&commit=Search')
+        location.replace('/search?query=' + search_parameters + ' type%3Aticket&commit=Search')
     }
 
 
