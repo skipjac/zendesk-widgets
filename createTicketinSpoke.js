@@ -40,7 +40,7 @@
 <script type="javascript">
     // This is the main bit of code, the action that occurs when the "Do" button is hit.
     // All other methods should be put into their own little sections
-
+(function () {
 var isValidEmail = function(address) {
      var reg = /^.+\@.+\..+$/;
      return reg.test(address);
@@ -118,6 +118,7 @@ do_create = function() {
                    console.log(arguments); 
                      }
                  });        
-}     
+}   
+}());  
 </script>
 
