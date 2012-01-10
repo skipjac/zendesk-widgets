@@ -35,7 +35,7 @@
          <input type="text" name="keywordSearch" id="keywordSearch" style="width: 196px"  />
       </li>
      
-    <input type='button' value='CreateTicket' onclick='GoSearch();'>
+    <input type='button' value='Search' onclick='GoSearch();'>
     <div style='padding: 4px; font-weight: bold; font-size: 18px;'>
         <div id='createtheticket_status'></div>
         <div id='createtheticket_error'></div>
@@ -58,7 +58,7 @@
         if($j('#keywordSearch').val()) {
             search_parameters += $j('#keywordSearch').val();
         }
-        location.replace('/search?query=' + search_parameters + '&commit=Search')
+        location.replace('/search?query=' + search_parameters + 'type%3Aticket&commit=Search')
     }
 
 
