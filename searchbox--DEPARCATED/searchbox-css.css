@@ -1,0 +1,33 @@
+/* hide both the forum title in both Home and Forums page */
+h2#search_box {display: none;}
+ h2.forums {display: none;} 
+
+/* make both classes relative */
+.overlay, .formoverlay{
+  position: relative;
+}
+
+/* I found that both search boxes required slightly different top settings for the label */
+.overlay label {
+  position: absolute;
+  top: 28px;
+  left: 52px;
+  color: #999;
+  cursor: text;
+  font-size:1.5em
+}
+
+
+.formoverlay label {
+  position: absolute;
+  top: 20px;
+  left: 52px;
+  color: #999;
+  cursor: text;
+  font-size:1.5em
+}
+
+/* CHange the width to what you want */
+form#suggest_form input#suggestions_query, .content #query  {
+	width: 875px;
+}
