@@ -1,0 +1,87 @@
+<html>
+   <head>
+ <script src="http://assets.zendesk.com/assets/bootstrap.js?1325706925" type="text/javascript"></script>
+       <title>dropbox test page</title>
+   </head>
+
+   <body>
+<div id="search">
+<li>
+          <label for="zenSearch">Subject</label>
+           <span> (required) </span>
+          <input class="required" type="text" name="zenSearch" id="zenSearch" style="width: 196px" value=""/>
+       </li>
+ <input type='button' value='Search' onclick='ZendeskSearch();'>
+</div>
+<script>
+var ZENDESK_DOMAIN = 'https://support.zendesk.com';
+ZendeskSearch = function() {
+jQuery('#zendesk_search_results').html('');
+jQuery.getJSON(ZENDESK_DOMAIN + '/api/v1/search?callback=?&query=' + jQuery('#zenSearch').val())
+    .done(function(results) {
+        var list = jQuery('#zendesk_search_results');
+        $j(results).each(function(i, result) {
+            list.append("<li>" +
+                          "<a href='" + ZENDESK_DOMAIN +
+                                    "/entries/" +
+                                    result.id +
+                                    "'>" +
+                          result.title +
+                          "</a></li");
+        });
+    });
+}
+jQuery("#zenSearch").keyup(function(event){
+    if(event.keyCode == 13){
+        //jQuery("input#Search").click();
+        ZendeskSearch();
+    }
+
+});
+</script>
+#zendesk_search_results
+
+<ul id="zendesk_search_results">
+</ul>
+   </body>
+</html>
+<html>
+   <head>
+ <script src="http://assets.zendesk.com/assets/bootstrap.js?1325706925" type="text/javascript"></script>
+       <title>dropbox test page</title>
+   </head>
+
+   <body>
+<div id="search">
+<li>
+          <label for="zenSearch">Subject</label>
+           <span> (required) </span>
+          <input class="required" type="text" name="zenSearch" id="zenSearch" style="width: 196px" value=""/>
+       </li>
+ <input type='button' value='Search' onclick='ZendeskSearch();'>
+</div>
+<script>
+var ZENDESK_DOMAIN = 'https://support.zendesk.com';
+ZendeskSearch = function() {
+jQuery('#zendesk_search_results').html('');
+jQuery.getJSON(ZENDESK_DOMAIN + '/api/v1/search?callback=?&query=' + jQuery('#zenSearch').val())
+    .done(function(results) {
+        var list = $j('#zendesk_search_results');
+        jQuery(results).each(function(i, result) {
+            list.append("<li>" +
+                          "<a href='" + ZENDESK_DOMAIN +
+                                    "/entries/" +
+                                    result.id +
+                                    "'>" +
+                          result.title +
+                          "</a></li");
+        });
+    });
+}
+</script>
+#zendesk_search_results
+
+<ul id="zendesk_search_results">
+</ul>
+   </body>
+</html>
