@@ -1,24 +1,26 @@
 (function($) {
    var re = new RegExp(/<(.*)>/);
    var requesterNameField = null;
+   var showTicket = 1;
+   var newTicket = 0;
 
-    var getName = function(){
+    var getName = function(ticketType){
         var requesterID = '';
         // var requesterNameField = $('#ticket_requester_name');
 
          if (requesterNameField.val() !== ''){
              requesterID = re.exec(requesterNameField.val());
-             HasTickets(requesterID[1]);
+             HasTickets(requesterID[1], ticketType);
          }
 
     }
 
-     var HasTickets = function(y) {
+     var HasTickets = function(y, z) {
 
          if (y) {
              $.getJSON('/search.json?query=status<solved+type%3Aticket+requester:' + y, function(searchResults) {
                  var x = searchResults.length;
-                 if (x > 1) {
+                 if (x > z) {
                      checkDupeTix2();
                  }
                  return x;
@@ -44,10 +46,10 @@
          requesterNameField = $('#ticket_requester_name');
          
         if ( requesterNameField .val() ){ 
-              getName();
+              getName(showTicket);
         }
        requesterNameField.blur(function() {
-        	getName();
+        	getName(newTicket);
          });
      });
      
