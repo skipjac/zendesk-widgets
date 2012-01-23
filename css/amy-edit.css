@@ -1,0 +1,624 @@
+
+/***********************************************************************************************/
+/*** changing colour of big search box on homepage***/
+/***********************************************************************************************/
+.green_box_bottom 
+{
+      background: url("/images/composite.gif") no-repeat scroll 0 -10px white;   /* light "Dark Green" */
+}
+.green_box_top 
+{
+      background: url("/images/composite.gif") no-repeat scroll 0 0 white;
+}
+.content_green 
+{ 
+      background: white;
+}
+
+/*** search boxes "search" button ***/
+.button:hover
+{
+    font-family:"Comic Sans MS";
+    background: url("");
+    background-color: seaGreen;
+    color: white;
+    border-color: seaGreen;
+}
+
+.button
+{
+    border-color:#E5D2FE;
+    color:seaGreen;
+    font-family:"Comic Sans MS";
+}
+/***********************************************************************************************/
+/*** shifting main boxes a bit lower ***/
+/***********************************************************************************************/
+div#container
+{
+    padding: 26px 0 0;
+}
+/***********************************************************************************************/
+/*** Account title font in seaGreen***/
+/***********************************************************************************************/
+.header, .header a, #table_header a, #top-right, #top-right a {
+   color: seaGreen;
+   size: 2em;
+}
+
+/*** Top menu bar = white***/
+#top-menu-background
+{
+    background-color:white;
+}
+/***********************************************************************************************/
+/*** Top menu bar removing that little "white" bar in between tabs***/
+/***********************************************************************************************/
+li.main
+{ 
+   background-image: none !important;  /*need the !important property to make sure style is applied */
+   border: none !important;
+}
+
+/***********************************************************************************************/
+/*** top menu bar ***/
+/***********************************************************************************************/
+#top-menu
+{
+    padding: 3px;
+}
+#top-menu a.tab, #top-menu span.tab
+{
+     font-weight: bold;
+     text-transform:lowercase;
+     font-size: 13px;
+    padding: 7px 15px 10px 15px;
+}
+
+/***********************************************************************************************/
+/*** top menu bar - green (left) ***/
+/***********************************************************************************************/
+/* clear the background first */
+#top-menu ul#green, #top-menu ul#green li.main, #top-menu #green li.active
+{
+  background: none;
+}
+/* change colour now */
+#top-menu #green a.tab, #top-menu #green span.tab 
+{
+   background:white;
+   color:seaGreen;    /*font*/
+   border: thin none;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    width: 50px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+/*** active top menu bar ***/
+/*** test area ****/
+/* removing the annoying mouse-over background */
+
+/**** end of test area ****/
+/* removing the annoying mouse-over little bar */
+ul#green li.active, ul#green.agent-tabs li.main, ul#green.agent-tabs li.active:hover, ul#green.agent-tabs li.active.over 
+{
+    border: none;
+}
+
+#top-menu #green li.active a.tab, #top-menu #green li.active span.tab
+{
+   background: oliveDrab;
+   color: white;
+   padding: 10px 15px;
+}
+/*** top-menu bar : hover ***/
+#top-menu #green li.main a.tab:hover, #top-menu #green li.main span.tab:hover 
+{
+  background:#6b8e23;
+  color: white;
+  -moz-box-shadow: 0 0 20px 2px black;
+  -webkit-box-shadow: 0 0 20px 2px black;
+  box-shadow: 0 0 20px 2px black;
+}
+
+/***********************************************************************************************/
+/*** top menu bar - right (gray): "view" and "new" and "recent" ***/
+/***********************************************************************************************/
+/* clear the background first */
+#top-menu ul#gray, #top-menu ul#gray li.main
+{
+  background: none;
+}
+
+/* view tab */
+#top-menu ul#gray li.tab_views a.tab 
+{
+    border-radius: 10px 10px 10px 10px;   
+    -moz-border-radius: 10px 10px 10px 10px;   
+    background: #D7F8FE;
+    color: #2F6F7B;
+    margin-left: 15px;
+}
+#top-menu ul#gray li.tab_views a.tab:hover
+{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    background:#55A6DF;
+    color: #D7F8FE;
+    -moz-box-shadow: 0 0 30px 2px black;
+    -webkit-box-shadow: 0 0 30px 2px black;
+   box-shadow: 0 0 30px 2px black;
+
+}
+/* new tab */
+#top-menu ul#gray li.tab_new a.tab
+{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    background: #F3E9FE;
+    color:#9074B1;
+    width: 50px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+#top-menu ul#gray li.tab_new a.tab:hover
+{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    background: none repeat scroll 0 0 #CCA4FE;
+    color: white;
+    width: 50px;
+   -moz-box-shadow: 0 0 20px 2px black;
+    -webkit-box-shadow: 0 0 20px 2px black;
+   box-shadow: 0 0 20px 2px black;
+}
+
+/* recent tab */
+#top-menu ul#gray li.tab_recent a.tab 
+{
+    border-radius: 10px 10px 10px 10px;   
+    -moz-border-radius: 10px 10px 10px 10px;   
+    background: #CCFEEE;
+    color: #187959;
+    margin-left: 25px;
+}
+#top-menu ul#gray li.tab_recent a.tab:hover
+{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    background: #23AE80;
+    color: #CCFEEE;
+    -moz-box-shadow: 0 0 20px 2px black;
+    -webkit-box-shadow: 0 0 20px 2px black;
+   box-shadow: 0 0 20px 2px black;
+
+}
+
+/***********************************************************************************************/
+/*** top menu bar - right (gray): "twitter" ***/
+/***********************************************************************************************/
+#gray #twitter_menu 
+{
+    background: none !important;
+    background-color: none white;
+}
+
+#gray #twitter_menu #twitter_menu_item
+{
+    background: url("http://www.nakedtranslations.com/images/twitter-icon.jpg") no-repeat ;
+    height: 32px; 
+    width: 31px;
+    margin: 4px 0 0;
+}
+
+#gray #twitter_menu #twitter_menu_item:hover
+{
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    -moz-box-shadow: 0 0 20px 2px black;
+    -webkit-box-shadow: 0 0 20px 2px black;
+   box-shadow: 0 0 20px 2px black;
+}
+
+/***********************************************************************************************/
+/*** top menu bar - right (gray): "chat" ***/
+/***********************************************************************************************/
+#top-menu #chat_menu
+{
+    background: none !important;
+    background-color: none white;
+}
+
+#top-menu #chat_menu #chat_menu_item
+{
+    background: url("http://static-2.socialgo.com/cache/7217/tiny/17008.jpg") no-repeat ;
+    height: 30px; 
+    width: 30px;
+    margin: 3px 0 0;
+
+}
+#top-menu #chat_menu:hover #chat_menu_item
+{
+   background-position:0 0;
+}
+
+#top-menu #chat_menu #chat_menu_item:hover
+{
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    -moz-box-shadow: 0 0 20px 2px black;
+    -webkit-box-shadow: 0 0 20px 2px black;
+   box-shadow: 0 0 20px 2px black;
+}
+
+/***********************************************************************************************/
+/*** top right search bar ***/
+/***********************************************************************************************/
+#top-menu-background, #top form#topquery 
+{
+    background-color: white;
+}
+
+#top form#topquery input#searchinput 
+{
+    height: 28px;
+    width: 216px;
+    -moz-box-shadow: inset 0 0 5px #6b8e23;
+    -webkit-box-shadow: inset 0 0 5px #6b8e23;
+    box-shadow: inset 0 0 5px #6b8e23;
+    padding: 4px 0 0 25px;
+}
+
+/***********************************************************************************************/
+/*** top solid bar with helpdesk name ****/
+/***********************************************************************************************/
+#header_container
+{
+    background: white;
+    padding: 20px 0 20px 35px;
+    -moz-box-shadow: inset 0 -40px 30px -10px #6b8e23;
+    -webkit-box-shadow: inset  0 50px 40px 30px #6b8e23;
+    box-shadow: inset 0 50px 40px 30px #6b8e23;
+}
+#header
+{
+    background : white;
+}
+
+/***********************************************************************************************/
+/*** remove logo ****/
+/***********************************************************************************************/
+#logo
+{
+    display:none;
+}
+/*** logo delimiter ***/
+#logo-delimiter 
+{
+    display: none;
+}
+/***********************************************************************************************/
+/*** general menu stuff ****/
+/***********************************************************************************************/
+/* shift the normal menu dropdown a bit lower */
+/* round the corner on the top of the menu */
+ul.menu-drop 
+{
+    top: 22px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+/***********************************************************************************************/
+/*** normal top-menu - left (green) dropdown ****/
+/***********************************************************************************************/
+#green li.drop-header
+{
+   color:#A8A8A8;
+}
+#green ul.menu-drop
+{
+    border: none;
+    margin: none;
+    background-color: #6b8e23;
+}
+
+#green ul.menu-drop li a
+{
+   background-color: #6b8e23;
+    color: white;
+}
+
+#green ul.menu-drop li a:hover
+{
+    color: seaGreen;
+    background-color: white;
+    -moz-border-radius: 4px;  
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+}
+
+/***********************************************************************************************/
+/*** top-menu - right (gray) dropdown ("view")****/
+/***********************************************************************************************/
+#gray li.drop-header
+{
+   color:white;
+}
+#gray #views-drop
+{
+    border: none;
+    margin: none;
+    background-color: #55A6DF;
+}
+
+#gray #views-drop li a
+{
+    background: none #55A6DF;
+    color: #D7F8FE;
+}
+
+#gray #views-drop li a:hover
+{
+   background: none #D7F8FE;
+    color: #2F6F7B;
+    -moz-border-radius: 4px;  
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+/* special one for "suspended tickets */
+#gray #views-drop li a.warning
+{
+    background: none #55A6DF;
+    color: #FEDFBF;
+}
+
+#gray #views-drop li a.warning:hover
+{
+    background: none #D7F8FE;
+    color: red;
+    -moz-border-radius: 4px;  
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+}
+
+
+/***********************************************************************************************/
+/*** top-menu - right (gray) dropdown ("recent")****/
+/***********************************************************************************************/
+#gray li.drop-header
+{
+   color:white;
+}
+#gray ul.menu-drop
+{
+    border: none;
+    margin: none;
+    background-color: #23AE80;
+}
+
+#gray ul.menu-drop li a
+{
+    background: none #23AE80;
+    color: #CCFEEE;
+}
+
+#gray ul.menu-drop li a:hover
+{
+   background: none #CCFEEE;
+    color: #187959;
+    -moz-border-radius: 4px;  
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+}
+
+ul.menu-drop li a span.id, ul.menu-drop li a div.r_n {
+    color:white;   /* white font for non-link ticket id */
+}
+
+ul.menu-drop li a:hover span.id, ul.menu-drop li a:hover div.r_n {
+    color:#777777;   /* grey font for non-link ticket id when hover*/
+}
+
+/***********************************************************************************************/
+/*** top-menu - right (gray) twitter dropdown ****/
+/***********************************************************************************************/
+#gray #twitter_searches_drop
+{
+    border: none;
+    margin: none;
+    background-color: #2CB7E2;
+}
+
+#gray #twitter_searches_drop li a
+{
+    background: none #2CB7E2;
+    color: #CBF3FE;
+}
+
+#gray #twitter_searches_drop li a:hover
+{
+   background: none #CBF3FE;
+    color: #2CB7E2;
+    -moz-border-radius: 4px;  
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+}
+
+/***********************************************************************************************/
+/*** top-menu - right (gray) dropdown ("open chat window")****/
+/***********************************************************************************************/
+
+#gray #chat_menu ul.menu-drop
+{
+    background: none #FF6600;
+}
+
+#gray #chat_menu ul.menu-drop li a 
+{
+    background: none #FF6600;
+    color: #FED9BF;
+}
+
+#gray #chat_menu ul.menu-drop li a:hover 
+{
+   background: none #FED9BF;
+    color: #FF6600;
+    -moz-border-radius: 4px;  
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+
+
+/*
+#gray ul.menu-drop li a
+{
+    background: none #23AE80;
+    color: #CCFEEE;
+}
+
+#gray ul.menu-drop li a:hover
+{
+   background: none #CCFEEE;
+    color: #23AE80;
+}
+
+ul.menu-drop li a span.id, ul.menu-drop li a div.r_n {
+    color:white;   /* white font for non-link ticket id 
+}
+
+ul.menu-drop li a:hover span.id, ul.menu-drop li a:hover div.r_n {
+    color:#777777;   /* grey font for non-link ticket id when hover
+}
+*/
+
+
+/***********************************************************************************************/
+/*** ticket view : header ****/
+/***********************************************************************************************/
+div.frame table.tickets thead tr th 
+{
+    border-bottom: none;
+    border-top: none;
+
+    background: white;
+    padding: 20px 0 20px 35px;
+    -moz-box-shadow: inset 0 40px 30px -25px #6b8e23;
+    -webkit-box-shadow: inset 0 40px 30px -25px #6b8e23;
+    box-shadow: inset 0 40px 30px -25px #6b8e23;
+    padding: 15px 20px;
+
+}
+
+div.frame table.tickets thead th a
+{
+    color: seaGreen;
+}
+
+div.frame table.tickets thead th a:hover
+{
+    color: grey;
+    text-decoration: none;
+}
+
+/***********************************************************************************************/
+/*** ticket view : body ****/
+/***********************************************************************************************/
+div.frame table.tickets tr.linked:hover>td 
+{
+     color: #3cb371;
+     background: aliceblue;
+}
+
+table.tickets td, table.tickets th 
+{
+    border-bottom: none;
+    //text-align:center;
+    color: #2e8b57;
+}
+
+/***********************************************************************************************/
+/*** main section (gray background) = (content_grey) to no colour ****/
+/***********************************************************************************************/
+.content_grey, .grey_box_top, .grey_box_bottom
+{
+    background: none;
+}
+
+/***********************************************************************************************/
+/*** new update notice ****/
+/***********************************************************************************************/
+#flash div#notice
+{
+    background: none;
+    border: none;
+    -moz-box-shadow: inset 0 0 30px red;
+    -webkit-box-shadow:  inset 0 0 30px red;
+    box-shadow:  inset 0 0 30px red;
+}
+
+/***********************************************************************************************/
+/*** side widgets ****/
+/***********************************************************************************************/
+/*** header ***/
+div.side-box-content h3 
+{
+    color: blue;
+}
+
+div.side-box-content 
+{
+   color: green;
+}
+/*** links ***/
+div.side-box-content a 
+{
+    color: green;
+}
+div.side-box-content a:hover {
+    color: blue;
+}
+.side-box-content, .blue_box_top, .blue_box_bottom, .side-box-with-image, .r_blue {
+background-color: white;
+ -moz-box-shadow: inset 0 0 5px #6b8e23;
+    -webkit-box-shadow: inset 0 0 5px #6b8e23;
+    box-shadow: inset 0 0 5px #6b8e23;
+}
+
+/***********************************************************************************************/
+/** Forum Stuff **/
+/***********************************************************************************************/
+div.category-header {
+       background-color: #F6FFEB;
+  }
+/***********************************************************************************************/
+/*** Global stuff ****/
+/***********************************************************************************************/
+/**** fonts *****/
+h1, h2, h3, p, div, strong, input{
+   font-family:"Comic Sans MS";
+}
+/*** link colour ****/
+.content a
+{
+    color: seaGreen;
+}
+.content a:hover
+{
+    color: blue;
+}
+/*** zendesk footer ***/
+#footer {
+	display: none;
+}
+body {
+   background: url(http://www.magnafabrics.com/images/camouflage/camNew/camouflage1.jpg)
+}

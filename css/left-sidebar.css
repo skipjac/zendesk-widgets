@@ -1,0 +1,3 @@
+#container #contentwrapper { float: right;  width: 950px; }
+#container #contentcolumn { margin-right: 0; }
+#sidebar { float:left; margin-left: 0; padding-left:0;}
