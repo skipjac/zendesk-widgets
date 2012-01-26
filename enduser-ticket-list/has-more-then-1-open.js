@@ -14,7 +14,9 @@
          }
 
     }
-
+     hideDiv = function(){
+         $("ul#banners li").css("display", "none");
+     }
      var HasTickets = function(y, z) {
 
          if (y) {
@@ -28,23 +30,19 @@
          }
      }
 
-     var hideDiv = function(){
-         $("ul#banners li").hide();
-         $("ul#banners").html('<script type="text/html" id="banner-item-template" data-template-name="banner-item"> <li> <span class="icon">&nbsp; &nbsp; &nbsp; </span> <span class="content">{{ text }}</span> <span class="ignore">(<a href="#">ignore this</a>)</span> <span class="reload">(<a href="">reload</a>)</span> </li> <\/script>');
-     }
+
 
 
      var checkDupeTix2 = function() {
-         hideDiv();
 
-             $("ul#banners").append('<li style="display: block;"><span class="icon">&nbsp; &nbsp; &nbsp; </span><span class="content">This requester has more than 1 open ticket. Please check for duplicate tickets.</span><span class="ignore">(<a href="#" onclick="hideDiv();return false ">ignore this</a>)</span><span class="reload"><a href="">reload</a></span></li>');
-             $("ul#banners li").show();
+              hideDiv();
+             $("ul#banners").prepend( '<li style="display: block;"><span class="icon">&nbsp; &nbsp; &nbsp; </span><span class="content">This requester has more than 1 open ticket. Please check for duplicate tickets.</span><span class="ignore">(<a href="#" onclick="hideDiv();return false ">ignore this</a>)</span><span class="reload"><a href="">reload</a></span></li>');
 
      }
 
      $(document).ready(function() {
          requesterNameField = $('#ticket_requester_name');
-         
+
         if ( requesterNameField .val() ){ 
               getName(showTicket);
         }
@@ -52,7 +50,7 @@
         	getName(newTicket);
          });
      });
-     
+
 
 
 }(jQuery));
