@@ -15,7 +15,7 @@
 
     }
      hideDiv = function(){
-         $("ul#banners li").css("display", "none");
+         $("ul#banners li.skip").css("display", "none");
      }
      var HasTickets = function(y, z) {
 
@@ -36,7 +36,7 @@
      var checkDupeTix2 = function() {
 
               hideDiv();
-             $("ul#banners").prepend( '<li style="display: block;"><span class="icon">&nbsp; &nbsp; &nbsp; </span><span class="content">This requester has more than 1 open ticket. Please check for duplicate tickets.</span><span class="ignore">(<a href="#" onclick="hideDiv();return false ">ignore this</a>)</span><span class="reload"><a href="">reload</a></span></li>');
+             $("ul#banners").append( '<li class="skip"><span class="icon">&nbsp; &nbsp; &nbsp; </span><span class="content">This requester has more than 1 open ticket. Please check for duplicate tickets.</span><span class="ignore">(<a href="#" OnClick="hideDiv();" >ignore this</a>)</span><span class="reload"><a href="">reload</a></span></li>');
 
      }
 
