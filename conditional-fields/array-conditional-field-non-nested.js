@@ -17,45 +17,59 @@ var project_request = ['h3:contains(No Revenue)','p:contains(no revenue)','#tick
 var date_fields = ['h3:contains(Date Required)','#ticket_fields_20389142','h3:contains(Requested date)','#ticket_fields_20388678'];
 var common_fields = ['h3:contains(Priority)','p:contains(Request priority)','#ticket_priority_id','h3:contains(Description)','p:contains(Thoroughly describe)','#comment_value'];
 
-
-
+//the array the hides everything
+var hideAll = [creative_request, project_request, date_fields, common_fields]
 
 //condition fields for the end user request form make sure you change the field ID to yours. 
 $j(document).ready(function() {  
+    
+    //function to hide a array of arrays 
+       var hide = function(){
+           $j.each(arguments, function(i, item){
+               for(y = 0; y < item.length; y++){
+                 for(x = 0; x < item[y].length; x++){ $j(item[y][x]).hide();}
+               }
+           }
+               );
+       }
+       //function to show a array of arrays
+       var show = function(){
+              $j.each(arguments, function(i, item){
+                  for(y = 0; y < item.length; y++){
+                    for(x = 0; x < item[y].length; x++){ $j(item[y][x]).show();}
+                  }
+              }
+                  );
+       }
 
    //check to see if you are on the end users request page
    if(location.pathname === '/requests/new' || location.pathname === '/anonymous_requests/new') {
-
-    for(i = 0; i < creative_request.length; i++){ $j(creative_request[i]).hide(); }
-    for(i = 0; i < project_request.length; i++){ $j(project_request[i]).hide(); }
-    for(i = 0; i < date_fields.length; i++){ $j(date_fields[i]).hide(); }
-    for(i = 0; i < common_fields.length; i++){ $j(common_fields[i]).hide(); }
+   //hide all the fields
+   hide(hideAll);
 
       //monitor the dropdown field
       $j('#ticket_fields_20381732').change(function (){ 
-                    //grab the value of the dropdown
+         //grab the value of the dropdown
          var userSelection = $j('#ticket_fields_20381732').val();
          if(userSelection === 'project_request') { 
-             for(i = 0; i < creative_request.length; i++){ $j(creative_request[i]).hide(); }
-             for(i = 0; i < project_request.length; i++){ $j(project_request[i]).show(); }
-             for(i = 0; i < date_fields.length; i++){ $j(date_fields[i]).show(); }
-             for(i = 0; i < common_fields.length; i++){ $j(common_fields[i]).show(); }
+             //hide all the fields
+                hide(hideAll);
+            //then show the array of fields you want to display
+             show(project_request, date_fields, common_fields)
 
           }
 
-
-          if(userSelection === 'creative_request'){  
-              for(i = 0; i < creative_request.length; i++){ $j(creative_request[i]).show(); }
-              for(i = 0; i < project_request.length; i++){ $j(project_request[i]).hide(); }
-              for(i = 0; i < date_fields.length; i++){ $j(date_fields[i]).show(); }
-              for(i = 0; i < common_fields.length; i++){ $j(common_fields[i]).show(); }
-
+          if(userSelection === 'creative_request'){ 
+              //hide all the fields
+                  hide(hideAll);
+              //then show the array of fields you want to display
+               show(creative_request, date_fields, common_fields)
           }
           if(userSelection !== 'creative_request' && userSelection !== 'project_request')  {
-             for(i = 0; i < creative_request.length; i++){ $j(creative_request[i]).hide(); }
-              for(i = 0; i < project_request.length; i++){ $j(project_request[i]).hide(); }
-              for(i = 0; i < date_fields.length; i++){ $j(date_fields[i]).show(); }
-              for(i = 0; i < common_fields.length; i++){ $j(common_fields[i]).show(); }
+               //hide all the fields
+                    hide(hideAll);
+                //then show the array of fields you want to display
+                 show(date_fields, common_fields)
          }
 
 
