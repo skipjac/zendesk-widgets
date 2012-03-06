@@ -6,7 +6,7 @@
 ** 2) THe description (which is optional) that is a <P> HTML Tag. Like the title we do a searh for words in the description like this p:contains(Which Division) so add that to the next element in the array
 ** 3) The last bit that need to be in the array is the selector for the field which is like  #ticket_fields_20389132 the number being the ID of the custom field. 
 **
-** You need to create a array for each condition you wish to exist. 
+** You need to create a array for each condition you wish to exist. aaa
 */
 
 var creative_request = ['h3:contains(Division)','p:contains(Which Division)','#ticket_fields_20389132','h3:contains(Phone Number)','#ticket_fields_20389182','h3:contains(Request Type)','p:contains(or On-going)','#ticket_fields_20388673','h3:contains(Contact Name)','#ticket_fields_20391371','h3:contains(Additional Notes)','p:contains(please provide justification)','#ticket_fields_20391376'];
@@ -55,7 +55,8 @@ $j(document).ready(function() {
              //hide all the fields
                 hide(hideAll);
             //then show the array of fields you want to display
-             show(project_request, date_fields, common_fields)
+			var showArray = [project_request, date_fields, common_fields];
+             show(showArray);
 
           }
 
@@ -63,13 +64,15 @@ $j(document).ready(function() {
               //hide all the fields
                   hide(hideAll);
               //then show the array of fields you want to display
-               show(creative_request, date_fields, common_fields)
+			  var showArray = [creative_request, date_fields, common_fields];
+               show(showArray);
           }
           if(userSelection !== 'creative_request' && userSelection !== 'project_request')  {
                //hide all the fields
                     hide(hideAll);
                 //then show the array of fields you want to display
-                 show(date_fields, common_fields)
+				var showArray = [creative_request, date_fields, common_fields];
+                 show(showArray);
          }
 
 
