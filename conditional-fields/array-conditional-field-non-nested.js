@@ -54,7 +54,7 @@ var hideAll = [].concat(creativeRequest, projectRequest);
          //grab the value of the dropdown
          var userSelection = $j('#ticket_fields_104609').val();
 		 hide(hideAll);
-         show(moodFieldMap[userSelection]);
+            if (userSelection.length > 0) show(moodFieldMap[userSelection]);
          });
 //    }
 
