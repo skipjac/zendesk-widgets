@@ -1,0 +1,199 @@
+<div id="time-comment">
+     <p><label for="userName">Name</label>
+		 <span STYLE="color: green; font-size: 10pt">Agent Name can not be blank</span>
+     <input class="required" type="text" name="userName" id="userName" style="width: 196px" value="{{current_user.name}}"/></p>
+     <p><label for="userHours">Hours</label>
+		 <span STYLE="color: green; font-size: 10pt">Please use only whole numbers</span>
+     <input class="required" type="text" name="userHours" id="userHours" style="width: 196px" value=""/></p>
+     <p><label for="dateSelect">Date</label>
+		 <span STYLE="color: green; font-size: 10pt">Please select date of work</span>
+     <input class="required" type="text" name="dateSelect" id="dateSelect" style="width: 196px" value=""/></p>
+
+  <p>	 
+    <div class="select">
+    <label for="zendeskSelect">Select Job Code</label>
+	<span STYLE="color: green; font-size: 10pt">Please select a category</span>
+     <select id="zendeskSelect" name="zendeskSelect" onchange style="width: auto;">
+		 <option value="">-</option>
+		     <option value="inbound_email">Inbound Email</option>
+		 	 <option value="outbound_email">Outbound Email</option>
+		     <option value="outbound_call">Outbound Call</option>
+		     <option value="inbound_call">Inbound Call</option>
+		     <option value="chat">Chat</option>
+		     <option value="escalation_private_comment">Escalation  Private Comment</option>
+		 	 <option value="closing_private_comment">Closing Private Comment</option>
+		 	 <option value="merging_private_commentt">Merging Private Comment</option>
+		 	 <option value="related_ticket_private_comment">Related Ticket Private Comment</option>
+		 	 <option value="other_private_comment">Other Private Comment</option>
+     </select>
+  </p>
+	 <p>
+		 <input type='button' id='track_my_time' value='Submit My Time' onclick='attempt_update();'>
+	 </p>
+</div>
+
+<script type="javascript">
+(function () {
+    //the metafield has to be appended instead the form div just after the custom fields. 
+	jQuery('#ticket_custom_fields').append('<input id="ticket_metadata_time_current_user_name" name="ticket[metadata][time_tracking][time_current_user_name]"type="hidden">');
+	jQuery('#ticket_custom_fields').append('<input id="ticket_metadata_time_added" name="ticket[metadata][time_tracking][time_added]"type="hidden">');
+	jQuery('#ticket_custom_fields').append('<input id="ticket_metadata_time_date" name="ticket[metadata][time_tracking][time_total]"type="hidden">');
+	jQuery('#ticket_custom_fields').append('<input id="ticket_metadata_time_type" name="ticket[metadata][time_tracking][time_type]"type="hidden">');
+	jQuery.datepicker.setDefaults( jQuery.datepicker.regional[ "" ] );
+	jQuery('#dateSelect').datepicker({
+			showOn: "button",
+			buttonImage: "/images/calendar_date_select/calendar.gif",
+			buttonImageOnly: true
+		});
+	
+    //declare the custom field ID's you wish to be uneditable
+    var prjField = ['20447562','20960702'];
+	//get the current value of hours total
+	var currentTotal = Number(jQuery('#ticket_fields_20447562').val());
+	//replace the ticket submit button function with the colorbox action
+	jQuery('input#submit-button').attr('onclick', 'jQuery.colorbox({inline:true, href:"#time-comment"})');
+	jQuery(".inline").colorbox({inline:true});
+    //hide the widget in the sidebar
+	jQuery('#widget_20326592').css('display', 'none');
+	//disable the fields function
+    editState = function (list, state) {
+	       jQuery.each(list, function(index, data) {
+		   $j('#ticket_fields_'+ data +'').attr("disabled", state);
+	   });
+	}
+	//blur them after you have edited the fields. You have to enable the fields in order to pass the data to submitTicketForm() so blur them every time someone clicks into the fields
+    var blurState = function (list) {
+	    jQuery.each(list, function(index, data) {
+		   $j('#ticket_fields_'+ data +'').focus(function(){this.blur()});
+	   });
+	}      
+    //1st disable the field on ticket load so people can copy data   
+	editState(prjField, true);
+	var requiredState = {
+		'user' : 0,
+		'time' : 0,
+		'date' : 0,
+		'cate' : 0
+	}
+    //code to get the size of a javascript object from http://stackoverflow.com/questions/5223/length-of-javascript-associative-array
+	Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+
+    // Get the size of an object
+    var size = Object.size(requiredState);
+	var intRegex = /^\d$|^\d\d$|^\d\d\d$/;
+	//hide the error message 
+	jQuery('input#userName.required').prev().hide();
+	jQuery('input#userHours.required').prev().hide();
+	jQuery('input#dateSelect.required').prev().hide();
+	jQuery('select#zendeskSelect').prev().hide();
+	//show on  hours error
+	jQuery('#userHours').blur(function (){
+		if (!intRegex.test(jQuery('#userHours').val())) {
+			jQuery('input#userHours.required').prev().show();
+			requiredState.time = 1;
+		} else {
+			requiredState.time = 0;
+			jQuery('input#userHours.required').prev().hide();
+			
+		}
+	});
+	//show on date error
+	var dateRegex = /^\d{1,2}(\-|\/|\.)\d{1,2}\1\d{4}$/;
+	jQuery('#dateSelect').change(function (){
+		if (!dateRegex.test(jQuery('#dateSelect').val())) {
+			jQuery('input#dateSelect.required').prev().show();
+			requiredState.date = 1;
+		} else {
+			requiredState.date = 0;
+			jQuery('input#dateSelect.required').prev().hide();
+			
+		}
+	});
+	jQuery('#zendeskSelect').change(function (){
+		if (jQuery('#zendeskSelect').val() === '') {
+			jQuery('select#zendeskSelect').prev().show();
+			requiredState.cate = 1;
+		} else {
+			requiredState.cate = 0;
+			jQuery('select#zendeskSelect').prev().hide();
+			
+		}
+	});
+	
+	//for flash warnings 
+    hideDiv = function(){
+        $j("ul#banners li.meta-warning").css("display", "none");
+    }
+	//the flash warning 
+    Metawarning = function() {
+        hideDiv();
+       $j("ul#banners").append( '<li class="meta-warning"><span class="icon">&nbsp; &nbsp; &nbsp; </span><span class="content">Please select a Meta Data type for Private Comments</span><span class="ignore">(<a href="#" OnClick="hideDiv();" >ignore this</a>)</span><span class="reload"><a href="">reload</a></span></li>');
+
+    }
+	
+
+	var metaData = function () {
+		if ( $j('#ticket_metadata_interaction_type').val() !== '' ) {
+			$j('input#submit-button').attr('onclick', 'submitTicketForm();');
+		} else {
+			Metawarning();
+		}
+		
+	}
+    //this sets the metadata fields and the custom fields and calls submitTicketForm() funciton 
+	attempt_update = function() {
+		//set the edit state to allow for editing so data will pass to submitTicketForm() on submit
+	    editState(prjField, false);
+		//set the metadata
+		jQuery('#ticket_metadata_time_current_user_name').val(jQuery('#userName').val());
+		jQuery('#ticket_metadata_time_added').val(jQuery('#userHours').val());
+		jQuery('#ticket_metadata_time_date').val(jQuery('#dateSelect').val());
+		jQuery('#ticket_metadata_time_type').val(jQuery('#zendeskSelect').val());
+		//set the customfields
+		jQuery('#ticket_fields_20960702').append('\n'+ jQuery('#userName').val() + ',' + jQuery('#dateSelect').val() + ',' + jQuery('#userHours').val() +',' + jQuery('#zendeskSelect').val());
+		jQuery('#ticket_fields_20447562').val(currentTotal + Number(jQuery('#userHours').val()));
+		//make is so the ticket fields blur on click so agents can't change the data 
+		blurState(prjField);
+		//submit the form
+		if ( jQuery('#ticket_metadata_time_current_user_name').val() === '' ) {
+			requiredState.user = 1;
+		}
+		if ( jQuery('#ticket_metadata_time_added').val() === '') {
+			requiredState.time = 1;
+		}
+		if ( jQuery('#ticket_metadata_time_date').val() === '') {
+			requiredState.date = 1;
+		}
+		if ( jQuery('#ticket_metadata_time_type').val() === '') {
+			requiredState.cate = 1;
+		}
+		
+			var requiredValue = true;
+			var count = 0;
+			for (x in requiredState) {
+				count += 1;
+				if (requiredState[x] === 1) {
+				      return test(false);
+				} else if (count === size) {
+				    return test(true);
+					}
+				var test = function (fun) {if (fun === true) {
+					submitTicketForm();
+				} else {
+					Metawarning();
+				}
+			  
+		  } 
+	  }
+		
+	}
+
+
+}());
+</script>
