@@ -15,16 +15,23 @@
 	<span STYLE="color: green; font-size: 10pt">Please select a category</span>
      <select id="zendeskSelect" name="zendeskSelect" onchange style="width: auto;">
 		 <option value="">-</option>
-		     <option value="inbound_email">Inbound Email</option>
-		 	 <option value="outbound_email">Outbound Email</option>
-		     <option value="outbound_call">Outbound Call</option>
-		     <option value="inbound_call">Inbound Call</option>
-		     <option value="chat">Chat</option>
-		     <option value="escalation_private_comment">Escalation  Private Comment</option>
-		 	 <option value="closing_private_comment">Closing Private Comment</option>
-		 	 <option value="merging_private_commentt">Merging Private Comment</option>
-		 	 <option value="related_ticket_private_comment">Related Ticket Private Comment</option>
-		 	 <option value="other_private_comment">Other Private Comment</option>
+		     <option value="case_review">Case Review</option>
+		 	 <option value="case_help">Case Help</option>
+			 <option value="chat">Chat</option>
+		     <option value="document_mgmt">Document Mgmt</option>
+		     <option value="escalation_gmt">Escalation Mgmt</option>
+		     <option value="meeting">Meeting</option>
+		     <option value="meeting_follow_up">Meeting Follow-up</option>
+		 	 <option value="meeting_prep">Meeting Prep</option>
+		 	 <option value="misc">Misc.</option>
+		 	 <option value="process_and_assign">Process & Assign</option>
+		 	 <option value="research">Research</option>
+			 <option value="script_server_action">Script/Server Action</option>
+			 <option value="kb_creation">KB Creation</option>
+			 <option value="kb_update">KB Update</option>
+			 <option value="system_admin">System Admin</option>
+			 <option value="training">Training</option>
+			 <option value="Troublehsooting">Troublehsooting</option>
      </select>
   </p>
 	 <p>
@@ -47,9 +54,9 @@
 		});
 	
     //declare the custom field ID's you wish to be uneditable
-    var prjField = ['20447562','20960702'];
+    var prjField = ['20447562','20960702','21002578'];
 	//get the current value of hours total
-	var currentTotal = Number(jQuery('#ticket_fields_20447562').val());
+	var currentTotal = Number(jQuery('#ticket_fields_21002578').val());
 	//replace the ticket submit button function with the colorbox action
 	jQuery('input#submit-button').attr('onclick', 'jQuery.colorbox({inline:true, href:"#time-comment"})');
 	jQuery(".inline").colorbox({inline:true});
@@ -86,7 +93,7 @@
 
     // Get the size of an object
     var size = Object.size(requiredState);
-	var intRegex = /^\d$|^\d\d$|^\d\d\d$/;
+	var intRegex = /^\d*.([0-5]\d)$/;
 	//hide the error message 
 	jQuery('input#userName.required').prev().hide();
 	jQuery('input#userHours.required').prev().hide();
@@ -157,7 +164,7 @@
 		jQuery('#ticket_metadata_time_type').val(jQuery('#zendeskSelect').val());
 		//set the customfields
 		jQuery('#ticket_fields_20960702').append('\n'+ jQuery('#userName').val() + ',' + jQuery('#dateSelect').val() + ',' + jQuery('#userHours').val() +',' + jQuery('#zendeskSelect').val());
-		jQuery('#ticket_fields_20447562').val(currentTotal + Number(jQuery('#userHours').val()));
+		jQuery('#ticket_fields_21002578').val(currentTotal + Number(jQuery('#userHours').val()));
 		//make is so the ticket fields blur on click so agents can't change the data 
 		blurState(prjField);
 		//submit the form
