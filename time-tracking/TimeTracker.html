@@ -2,10 +2,10 @@
      <p><label for="userName">Name</label>
 		 <span STYLE="color: green; font-size: 10pt">Agent Name can not be blank</span>
      <input class="required" type="text" name="userName" id="userName" style="width: 196px" value="{{current_user.name}}"/></p>
-     <p><label for="userHours">Hours</label>
+     <p><label for="userHours">Hours (HH:MM)</label>
 		 <span STYLE="color: green; font-size: 10pt">Please use only whole numbers</span>
      <input class="required" type="text" name="userHours" id="userHours" style="width: 196px" value=""/></p>
-     <p><label for="dateSelect">Date</label>
+     <p><label for="dateSelect">Date (MM/DD/YYYY)</label>
 		 <span STYLE="color: green; font-size: 10pt">Please select date of work</span>
      <input class="required" type="text" name="dateSelect" id="dateSelect" style="width: 196px" value=""/></p>
 
@@ -54,9 +54,9 @@
 		});
 	
     //declare the custom field ID's you wish to be uneditable
-    var prjField = ['20447562','20960702','21002578'];
+    var prjField = ['20447562','20960702','21007028'];
 	//get the current value of hours total
-	var currentTotal = Number(jQuery('#ticket_fields_21002578').val());
+	var currentTotal = jQuery('#ticket_fields_21007028').val() || '0:00';
 	//replace the ticket submit button function with the colorbox action
 	jQuery('input#submit-button').attr('onclick', 'jQuery.colorbox({inline:true, href:"#time-comment"})');
 	jQuery(".inline").colorbox({inline:true});
@@ -132,6 +132,33 @@
 			
 		}
 	});
+	var pad = function(minutes) {
+		if (Number(minutes) < 10) {
+			var whole = '0' + minutes;
+		} else {
+			var whole = minutes; 
+		}
+		return whole;
+	}
+	var timeAcc = function(additional) {
+		var re = /\.|:/;
+		var accTime, addTime, total;
+		if ( typeof currentTotal !== 'string') {
+			requiredState.time = 1;
+		} else {
+			var currentString = currentTotal.split(re)
+		}
+		accTime = Math.floor(Number(currentString[0]) * 60) + Number(currentString[1]);
+		
+		if ( typeof additional !== 'string') {
+			requiredState.time = 1;
+		} else {
+			var additionalString = additional.split(re)
+		}
+		addTime = Math.floor(Number(additionalString[0]) * 60) + Number(additionalString[1]);
+		total = accTime + addTime; 
+		return Math.floor(total / 60) + ':' + pad(Math.floor(total % 60));
+	}
 	
 	//for flash warnings 
     hideDiv = function(){
@@ -164,7 +191,7 @@
 		jQuery('#ticket_metadata_time_type').val(jQuery('#zendeskSelect').val());
 		//set the customfields
 		jQuery('#ticket_fields_20960702').append('\n'+ jQuery('#userName').val() + ',' + jQuery('#dateSelect').val() + ',' + jQuery('#userHours').val() +',' + jQuery('#zendeskSelect').val());
-		jQuery('#ticket_fields_21002578').val(currentTotal + Number(jQuery('#userHours').val()));
+		jQuery('#ticket_fields_21007028').val(timeAcc(jQuery('#userHours').val()));
 		//make is so the ticket fields blur on click so agents can't change the data 
 		blurState(prjField);
 		//submit the form
