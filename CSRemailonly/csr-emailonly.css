@@ -1,2 +1,3 @@
 #top, #footer, #sidebar { display: none; }
 #contentwrapper{padding:200px}
+#satisfaction_rating #current_rating .footer {display: none;}
