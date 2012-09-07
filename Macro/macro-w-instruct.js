@@ -7,8 +7,8 @@ var test = function () {
 $j("#comment_value").delay(500, "myQueue").queue("myQueue", function(){ 
         var macroText = jQuery('#comment_value').val();
         var macroInstruct = macroText.split('****');
-        jQuery('#comment_value').val(macroInstruct [0]);
-        jQuery('#macro-instruction').append(macroInstruct [1]);
+        jQuery('#comment_value').val(macroInstruct [1]);
+        jQuery('#macro-instruction').append(macroInstruct [0]);
         }).dequeue("myQueue");
 }
 
