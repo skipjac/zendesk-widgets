@@ -13,9 +13,9 @@ $j("#comment_value").delay(500, "myQueue").queue("myQueue", function(){
 }
 
 
-jQuery('div._macro_list li.link').click( function() { test(); });
+jQuery('div#_macro_list._macro_list li.link').click( function() { test(); });
 
-
+jQuery('div#_macro_list._macro_list li.search_result').click( function() { test(); });
 
 }());
 </script>
