@@ -46,12 +46,7 @@ do_action = function() {
     });
 
     get_current_user_id = function() {
-        var _current_user_id = 0;
-        agents.each( function(row) {
-            if (row['name'] == "{{current_user.name}}") {
-                _current_user_id = row['id'];
-            }
-        });
+        var _current_user_id = currentUser.id;
         return _current_user_id;
     }
 
@@ -60,7 +55,7 @@ do_action = function() {
 
 <script type="javascript">
     // this is all the code for the ticket stealing function.
-    var ticket_id = ticketId;
+    var ticketId = ticket_id;
     var can_update_ticket = false;
     var assignee_name = 'Unknown';
 
@@ -70,7 +65,7 @@ do_action = function() {
             do_steal();
         });
     }
-    
+
     var rootTicket = {};
         rootTicket.ticket = {};
         rootTicket.ticket.assignee_id = currentUser.id;
@@ -87,7 +82,7 @@ do_action = function() {
         }
 
         if (do_it) { 
-            $j.ajax('/api/v1/tickets/' + ticket_id + '.json', {
+            $j.ajax('/api/v1/tickets/' + ticketId + '.json', {
                 type:'PUT',
                 contentType: "application/json",
                 accepts: "application/json",
