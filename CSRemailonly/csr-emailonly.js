@@ -1,4 +1,4 @@
-if (!(window.location.href.indexOf('satisfaction') >= 0)) { 
+if (!(window.location.href.indexOf('satisfaction') >= 0) && !(window.location.href.indexOf('widgets') >= 0)) { 
 $j('#top').show();
 $j('#footer').show();
 $j('#sidebar').show();
