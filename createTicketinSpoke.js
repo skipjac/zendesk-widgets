@@ -100,7 +100,7 @@ do_create = function() {
                 log_status('Starting...');
 
                  $j.ajax({
-                   url: '/proxy/direct?url=http://'+$j('#zendeskSelect').val()+'/requests/embedded/create/?subject='+ encodeURI($j('#ticketSubject').val())+'%26description='+encodeURI($j('#ticketDesc').val())+'%26name='+encodeURI($j('#userName').val())+'%26email='+ encodeURI($j('#userEmail').val()),
+                   url: '/proxy/direct?url=http://'+$j('#zendeskSelect').val()+'/requests/embedded/create.json?subject='+ encodeURI($j('#ticketSubject').val())+'%26description='+encodeURI($j('#ticketDesc').val())+'%26name='+encodeURI($j('#userName').val())+'%26email='+ encodeURI($j('#userEmail').val()),
                    dataType: 'JSON',
                    type: 'GET',
                     contentType: 'application/json',
