@@ -1,0 +1,51 @@
+<div class="clearfix">
+
+  <nav class="sub-nav clearfix">
+    {{breadcrumbs}}
+    {{search_bar}}
+  </nav>
+
+  <article id="article">
+
+    <header class="article-header clearfix">
+      <h1>{{title}}</h1>
+      <div class="article-metadata">
+        <div class="article-avatar">{{author_avatar}}</div>
+        <div class="article-author">{{author_name}}</div>
+        <div class="article-updated">{{updated_at}}</div>
+      </div>
+    </header>
+
+    <div class="article-body">
+      {{body}}
+    </div>
+
+    <footer class="article-footer clearfix">
+      <div class="article-vote">
+        {{vote}}
+      </div>
+      <ul class="article-share">
+        <li>{{share_facebook}}</li>
+        <li>{{share_twitter}}</li>
+        <li>{{share_linkedin}}</li>
+      </ul>
+    </footer>
+
+    <div class="article-contact-us">
+      {{contact_us}}
+    </div>
+
+    <section class="article-comments">
+      <h2>{{comments}}</h2>
+      {{comment_list}}
+      {{comment_form}}
+    </section>
+
+  </article>
+
+  <aside class="article-sidebar">
+    {{recent_articles}}
+    {{related_articles}}
+  </aside>
+
+</div>
