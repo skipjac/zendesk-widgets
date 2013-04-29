@@ -42,7 +42,7 @@ truncate = function(text, length, ellipsis) {
 			//name the current found item this for this particular loop run
 			var $item = $j(this);
 			// grab the post title
-			var title = $item.find('title').text();
+			var title = $item.children('title').text();
 
 			// grab the post's URL
 			var link = $item.find('link').text();
