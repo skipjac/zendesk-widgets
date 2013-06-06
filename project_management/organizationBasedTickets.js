@@ -14,18 +14,13 @@
 <input type="checkbox" name="singlecheck" value="single" id="singlecheck" />Create Single Child Ticket<br />
 </div>
 <div class="singlecreate"  >
-      <li>
-      <label for="userName">Name</label>
-       <span>Agent Name of Internal Requester</span>
-       <input class="required" type="text" name="userName" id="userName" style="width: 196px" value="{{current_user.name}}"/>
-      </li>
      <li>
         <label for="userEmail">Email</label>
          <span>Email Address of Internal Requester</span>
-         <input class="required" type="text" name="userEmail" id="userEmail" style="width: 196px"  value="{{current_user.email}}"/>
+         <select id="single_group" name="single_group"  multiple="multiple"></select>
       </li>
       <li>
-         <label for="single_group">Groups</label>
+         <label for="single_group">Organization</label>
          <select id="single_group" name="single_group"  multiple="multiple"></select>
        </li>
       <li>
@@ -42,48 +37,7 @@
     <input type='button' value='Create one Child' onclick='attempt_child();'>
 
 </div>
-
-<!-- Bulk Create tickets -->
-<div class="pCheckbox">
-<input type="checkbox" name="bulkcheck" value="single" id="bulkcheck" /> Create Bulk Child Tickets<br />
-</div>
-<div class="bulkcreate">
-<li>
-   <label for="multi_org">Organizations</label>
-   <select id="multi_org" name="multi_org"  multiple="multiple"></select>
- </li>
-<li>
-      <label for="bulkTicketDesc">Description<label>
-       <span> (required) </span> 
-      <textarea class="required" rows="10" name="bulkTicketDesc" id="bulkTicketDesc" style="width: 196px">{{ticket.description}}</textarea>
-    </li>
-<input type='button' value='Create Children tickets' onclick='attempt_children();'>
-</div>
-
-<!-- add exsisting ticket to project -->
-<div class="pCheckbox">
-<input type="checkbox" name="addcheck" value="single" id="addcheck" />  Add Existing Ticket<br />
-</div>
-<div class="addtickets">
-<ol>
-    <li>
-      <label for="ticketList">Ticket number to add</label>
-       <input class="required" type="text" name="ticketList" id="ticketList" style="width: 196px" />
-      </li>
-    </ul>
-     <input type='button' value='Add to Project' onclick='attempt_create();'>
-</div>
-
-<!-- Remove current child ticket from project -->
-
-<div class="cCheckbox">
-<input type='button' value='Remove from Project' onclick='remove_child();'>
-</div>
-
-<div style='padding: 4px; font-weight: bold; font-size: 18px;'>
-    <div id='createtheproject_status'></div>
-    <div id='createtheproject_error'></div>
-</div>
+    
 
 
 <!-- this is used to pull ticket data for variables in the javascript -->
@@ -96,13 +50,7 @@
 <!-- the script -->
 <script type="javascript">
 (function() {
-Widget.require('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js', {type: 'text/javascript'});
-
-$j(".singlecreate").hide();
-$j(".bulkcreate").hide();
-$j(".addtickets").hide();
-$j('.cCheckbox').hide();
-
+//Widget.require('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js', {type: 'text/javascript'});
 
 var groupPageCount = 1;
 var customFieldIDremove = {20541671:''};
